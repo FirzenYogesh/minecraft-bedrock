@@ -12,22 +12,22 @@ This docker can be executed easily
 
 1. Pull the docker image:
 
-``` Docker
-docker pull firzenyogesh/minecraft-bedrock
-```
+    ``` Docker
+    docker pull firzenyogesh/minecraft-bedrock
+    ```
 
 2. Start the container:
 
-``` Docker
-docker run -d --network=host firzenyogesh/minecraft-bedrock
-```
+    ``` Docker
+    docker run -d -it --network=host firzenyogesh/minecraft-bedrock
+    ```
 
 ### Advanced Settings
 
 The above method is to start the server quick. There is a chance that you will lose your world's progress, if this container is updated (*eg. new server version*). To overcome that we use volume. We mount on a path that is outside the container
 
 ``` Docker
-docker run -d -v "/minecraft:/srv/minecraft" --network=host firzenyogesh/minecraft-bedrock
+docker run -d -it -v "/minecraft:/srv/minecraft" --network=host firzenyogesh/minecraft-bedrock
 ```
 
 **Assuming `/minecraft` is the path to mount in your machine. Change the path to your preference**
@@ -50,24 +50,50 @@ By doing this you can safely retain your worlds and mods, even if this container
 
 - If you want your world to have different name, start the container like this:
 
-``` Docker
-docker run -d -e WORLD=worldname --network=host firzenyogesh/minecraft-bedrock
-```
+    ``` Docker
+    docker run -d -it -e WORLD=worldname --network=host firzenyogesh/minecraft-bedrock
+    ```
 
 - If you want run on different port, start the container like this:
 
-``` Docker
-docker run -d -e PORT=19132 -e PORTv6=19133 --network=host firzenyogesh/minecraft-bedrock
-```
+    ``` Docker
+    docker run -d -it -e PORT=19132 -e PORTv6=19133 --network=host firzenyogesh/minecraft-bedrock
+    ```
 
 - A full docker command with all the variables put in:
 
-``` Docker
-docker run -d -e WORLD=worldname -e PORT=19132 -e PORTv6=19133 -v "/minecraft:/srv/minecraft" --network=host firzenyogesh/minecraft-bedrock
-```
+    ``` Docker
+    docker run -d -it -e WORLD=worldname -e PORT=19132 -e PORTv6=19133 -v "/minecraft:/srv/minecraft" --network=host firzenyogesh/minecraft-bedrock
+    ```
 
 Replace `worldname` with what you prefer.
 
 Replace `/minecraft` to the path you prefer.
+
+### Stopping the server and the container
+
+1. To stop the `Minecraft` server
+
+    ``` Docker
+    docker attach <container id>
+    ```
+
+    - Once the container is attached run the command `Stop`, you should be seeing **Quit correctly** message
+
+    - To get out of the attached container use `Ctrl + p + q`, if you use other combination it may not work.
+
+2. To stop the container
+
+    ``` Docker
+    docker container stop <container id>
+    ```
+
+You can get the container id by running the following command
+
+``` Docker
+docker ps | grep firzenyogesh/minecraft-bedrock
+```
+
+This will list only the server container, use the container id you get in the result of that command.
 
 Hope this helps out everyone, and **Happy Minecrafting ⛏️**
