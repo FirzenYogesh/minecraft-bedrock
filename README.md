@@ -36,11 +36,15 @@ docker run -d -v "/minecraft:/srv/minecraft" --network=host firzenyogesh/minecra
 
 - This will create the files `invalid_known_packs.json`, `valid_known_packs.json` in the path `/minecraft`
 
+- If you have custom properties for the existing world like different `server.properties` or `whitelist.json` or `permissions.json`, these files go inside the path **`/minecraft/properties_for_worlds/worldname/`**  where `worldname` is your existing world name. The container will use these files if you provide them in this path, otherwise it will use the default properties.
+
 These *files and folders* are generated to easliy import your existing ***mods*** and ***worlds*** to the container.
 
 It is **recommended** to run the above mentioned command ***once***, before importing your existing ***worlds*** and ***mods***.
 
 You can however do that without running the command, provided you have copied the `resource_packs`, `behavior_packs` and `worlds` folders from your existing server to the path `/minecraft`. If this is not done the server won't start. So make sure that atleast `resource_packs` and `behavior_packs` are there in the `/minecraft` path.
+
+By doing this you can safely retain your worlds and mods, even if this container is destroyed or upgraded or redeployed when needed.
 
 ### Bonus Note
 
@@ -55,3 +59,15 @@ docker run -d -e WORLD=worldname --network=host firzenyogesh/minecraft-bedrock
 ``` Docker
 docker run -d -e PORT=19132 -e PORTv6=19133 --network=host firzenyogesh/minecraft-bedrock
 ```
+
+- A full docker command with all the variables put in:
+
+``` Docker
+docker run -d -e WORLD=worldname -e PORT=19132 -e PORTv6=19133 -v "/minecraft:/srv/minecraft" --network=host firzenyogesh/minecraft-bedrock
+```
+
+Replace `worldname` with what you prefer.
+
+Replace `/minecraft` to the path you prefer.
+
+Hope this helps out everyone, and **Happy Minecrafting ⛏️**
