@@ -19,7 +19,7 @@ docker pull firzenyogesh/minecraft-bedrock
 2. Start the container:
 
 ``` Docker
-docker run --network=host firzenyogesh/minecraft-bedrock
+docker run -d --network=host firzenyogesh/minecraft-bedrock
 ```
 
 ### Advanced Settings
@@ -27,7 +27,7 @@ docker run --network=host firzenyogesh/minecraft-bedrock
 The above method is to start the server quick. There is a chance that you will lose your world's progress, if this container is updated (*eg. new server version*). To overcome that we use volume. We mount on a path that is outside the container
 
 ``` Docker
-docker run -v "/minecraft:/srv/minecraft" --network=host firzenyogesh/minecraft-bedrock
+docker run -d -v "/minecraft:/srv/minecraft" --network=host firzenyogesh/minecraft-bedrock
 ```
 
 **Assuming `/minecraft` is the path to mount in your machine. Change the path to your preference**
@@ -47,11 +47,11 @@ You can however do that without running the command, provided you have copied th
 - If you want your world to have different name, start the container like this:
 
 ``` Docker
-docker run -e WORLD=worldname --network=host firzenyogesh/minecraft-bedrock
+docker run -d -e WORLD=worldname --network=host firzenyogesh/minecraft-bedrock
 ```
 
 - If you want run on different port, start the container like this:
 
 ``` Docker
-docker run -e PORT=19132 -e PORTv6=19133 --network=host firzenyogesh/minecraft-bedrock
+docker run -d -e PORT=19132 -e PORTv6=19133 --network=host firzenyogesh/minecraft-bedrock
 ```
