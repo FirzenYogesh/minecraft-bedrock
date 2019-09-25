@@ -1,5 +1,14 @@
 # Minecraft Bedrock Server for Docker
 
+<!-- [![Build Status](https://travis-ci.org/firzenyogesh/minecraft-bedrock.svg?branch=master)](https://travis-ci.org/firzenyogesh/minecraft-bedrock)  -->
+[![Docker Pulls](https://img.shields.io/docker/pulls/firzenyogesh/minecraft-bedrock.svg)](https://hub.docker.com/r/firzenyogesh/minecraft-bedrock/) 
+[![Docker Layers](https://images.microbadger.com/badges/image/firzenyogesh/minecraft-bedrock.svg)](https://microbadger.com/images/firzenyogesh/minecraft-bedrock)
+[![Docker Version](https://images.microbadger.com/badges/version/firzenyogesh/minecraft-bedrock.svg)](https://microbadger.com/images/firzenyogesh/minecraft-bedrock "Get your own version badge on microbadger.com")
+[![Github Stars](https://img.shields.io/github/stars/firzenyogesh/minecraft-bedrock.svg?label=github%20%E2%98%85)](https://github.com/firzenyogesh/minecraft-bedrock/) 
+[![GitHub Issues](https://img.shields.io/github/issues-raw/firzenyogesh/minecraft-bedrock.svg)](https://github.com/firzenyogesh/minecraft-bedrock/issues)
+[![Github Contributers](https://img.shields.io/github/contributors/firzenyogesh/minecraft-bedrock.svg)](https://github.com/firzenyogesh/minecraft-bedrock/) 
+[![Github Forks](https://img.shields.io/github/forks/firzenyogesh/minecraft-bedrock.svg?label=github%20forks)](https://github.com/firzenyogesh/minecraft-bedrock/)
+
 A Docker container to run Minecraft Bedrock Server.
 
 ## Prerequisites
