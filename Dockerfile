@@ -9,8 +9,10 @@ ARG INSTALL_URL='https://minecraft.azureedge.net/bin-linux/bedrock-server-1.12.1
 ENV SERVER_PATH='/srv/bedrock-server'
 ENV SERVER_ESSENTIALS='/srv/essentials'
 
-EXPOSE ${PORT}
-EXPOSE ${PORTv6}
+EXPOSE ${PORT}/tcp
+EXPOSE ${PORTv6}/tcp
+EXPOSE ${PORT}/udp
+EXPOSE ${PORTv6}/udp
 
 VOLUME ${MINECRAFT_COMMON_PATH}
 
