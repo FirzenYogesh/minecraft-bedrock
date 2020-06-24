@@ -18,7 +18,7 @@ VOLUME ${MINECRAFT_COMMON_PATH}
 
 # install minecraft server
 RUN apt-get update
-RUN apt-get install -y unzip curl libcurl4 libssl1.0.0
+RUN apt-get install -y unzip curl libcurl4 libssl1.1
 RUN curl ${INSTALL_URL} --output ${SERVER_PATH}.zip
 RUN unzip ${SERVER_PATH}.zip -d ${SERVER_PATH}
 RUN rm ${SERVER_PATH}.zip
