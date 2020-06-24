@@ -5,7 +5,7 @@ ENV WORLD='DefaultWorld'
 ENV PORT=19132
 ENV PORTv6=19133
 ENV MINECRAFT_COMMON_PATH='/srv/minecraft'
-ARG INSTALL_URL='https://minecraft.azureedge.net/bin-linux/bedrock-server-1.14.32.1.zip'
+ARG INSTALL_URL='https://minecraft.azureedge.net/bin-linux/bedrock-server-1.16.0.2.zip'
 ENV SERVER_PATH='/srv/bedrock-server'
 ENV SERVER_ESSENTIALS='/srv/essentials'
 
