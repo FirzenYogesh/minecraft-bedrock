@@ -1,19 +1,19 @@
 name: Docker Image CI/CD
 
 on:
-	push:
+  push:
     branches: [master, main]
-	pull_request:
+  pull_request:
     branches: [master, main]
 
 jobs:
-	build:
+  build:
     runs-on: ubuntu-latest
     steps:
-		- uses: actions/checkout@v2
-		- name: Docker Login
-		run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
-		- name: Build the Docker image
-		run: docker build . --file Dockerfile --tag ${{ github.repo }}:latest
-		- name: Docker Push
+    - uses: actions/checkout@v2
+    - name: Docker Login
+    run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+    - name: Build the Docker image
+    run: docker build . --file Dockerfile --tag ${{ github.repo }}:latest
+    - name: Docker Push
         run: docker push ${{ github.repo }}:latest
