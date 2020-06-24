@@ -14,6 +14,6 @@ jobs:
       - name: Docker Login
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag ${{ github.repo }}:latest
+        run: docker build . --file Dockerfile --tag ${{ github.repository }}:latest
       - name: Docker Push
-        run: docker push ${{ github.repo }}:latest
+        run: docker push ${{ github.repository }}:latest
