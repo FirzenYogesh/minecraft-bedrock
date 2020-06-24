@@ -13,3 +13,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Docker Login
         run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag firzenyogesh/minecraft-bedrock:latest
+      - name: Docker Push
+        run: docker push firzenyogesh/minecraft-bedrock:latest
